@@ -23,8 +23,11 @@ public class CRUDService {
         ApiFuture<WriteResult> writeResult = dbFirestore.collection("crud_user").document(documentID).delete();
         return "Successfully deleted" + documentID;
     }
-    public String updateCRUD(CRUD crud) {
-        return "";
+    public String updateCRUD(CRUD crud) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("crud_user").document(crud.getName()).set(crud);
+
+        return collectionsApiFuture.get().getUpdateTime().toString();
     }
     public CRUD getCRUD(String documentID) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
@@ -36,7 +39,7 @@ public class CRUDService {
             crud = document.toObject(CRUD.class);
             return crud;
         }
-        return null;
+        return null ;
     }
 
 

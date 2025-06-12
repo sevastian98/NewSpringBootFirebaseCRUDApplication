@@ -25,7 +25,7 @@ public class CRUDController {
         return crudService.getCRUD(documentID);
     }
     @PutMapping("/update")
-    public String updateCRUD(@RequestBody CRUD crud) throws IntrospectionException, ExecutionException {
+    public String updateCRUD(@RequestBody CRUD crud) throws IntrospectionException, ExecutionException, InterruptedException {
         return crudService.updateCRUD(crud);
     }
     @PutMapping("/delete")
