@@ -23,7 +23,7 @@ public class FireBaseCrudApplication {
 		ClassLoader classLoader = FireBaseCrudApplication.class.getClassLoader();
 		File file = new File(Objects.requireNonNull(classLoader.getResource("serviceAccountKey.json")).getFile());
 		FileInputStream serviceAccount =
-				new FileInputStream("C:\\Users\\svascan\\Desktop\\New folder\\SpringBootFirebaseCRUDApplication\\FireBaseCRUDApplication\\src\\main\\resources\\serviceAccountKey.json");
+				new FileInputStream("C:\\Users\\svascan\\Desktop\\New folder\\NewSpringBootFirebaseCRUDApplication\\src\\main\\resources\\serviceAccountKey.json");
 
 		FirebaseOptions options = new FirebaseOptions.Builder()
 				.setCredentials(GoogleCredentials.fromStream(serviceAccount))

@@ -1,5 +1,6 @@
 package pixel.academy.FireBaseCRUDApplication;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.beans.IntrospectionException;
@@ -15,12 +16,12 @@ public class CRUDController {
     }
 
     @PostMapping("/create")
-    public String createCRUD(@RequestBody CRUD crud) throws IntrospectionException, ExecutionException {
+    public String createCRUD(@RequestBody CRUD crud) throws IntrospectionException, ExecutionException, InterruptedException {
         return crudService.createCRUD(crud);
     }
 
     @GetMapping("/get")
-    public CRUD getCRUD(@RequestParam String documentID) throws IntrospectionException, ExecutionException {
+    public CRUD getCRUD(@RequestParam String documentID) throws IntrospectionException, ExecutionException, InterruptedException {
         return crudService.getCRUD(documentID);
     }
     @PutMapping("/update")
@@ -32,6 +33,10 @@ public class CRUDController {
         return crudService.deleteCRUD(String.valueOf(documentID));
     }
 
+    @GetMapping("/test")
+    public ResponseEntity<String> thestGetEndpoint(){
+        return ResponseEntity.ok("Test Get Endpoint is Working");
+    }
 
 
 }
