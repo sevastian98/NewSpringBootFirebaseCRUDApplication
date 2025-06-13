@@ -8,7 +8,7 @@ import lombok.Setter;
 public class CRUD {
     private String documentID;
     private String name;
-    private String professional;
+    private String profession;
 
 }
 

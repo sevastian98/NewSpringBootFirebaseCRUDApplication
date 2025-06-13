@@ -15,7 +15,7 @@ public class CRUDService {
 
     public String createCRUD(CRUD crud) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("crud_user").document(crud.getName()).set(crud);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("crud_user").document(crud.getDocumentID()).set(crud);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
     public String deleteCRUD(String documentID) {
@@ -25,7 +25,7 @@ public class CRUDService {
     }
     public String updateCRUD(CRUD crud) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("crud_user").document(crud.getName()).set(crud);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("crud_user").document(crud.getDocumentID()).set(crud);
 
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
